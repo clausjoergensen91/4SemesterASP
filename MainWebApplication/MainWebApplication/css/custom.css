@@ -1,5 +1,15 @@
-﻿.jumbotron {
-    margin: 60px;
+﻿body {
+    padding-top: 30px;
+}
+
+.jumbotron h1{
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: #1C7FF2;
+}
+
+.jumbotron p{
+    color: black;
 }
 
 .blog-header {
@@ -12,4 +22,11 @@
     margin-bottom: 0;
     font-size: 60px;
     font-weight: normal;
+}
+
+footer{
+	padding-top: 50px;
+	padding-bottom: 30px;
+	background-color: #0acdd2;
+	text-align: center;
 }

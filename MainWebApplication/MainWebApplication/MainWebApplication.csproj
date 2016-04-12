@@ -70,7 +70,7 @@
     <Content Include="Admin\EditCalendar.aspx" />
     <Content Include="Admin\NewsAdmin.aspx" />
     <Content Include="Admin\Statistics.aspx" />
-    <Content Include="css\customAbout.css" />
+    <Content Include="css\customContact.css" />
     <Content Include="images\logo.jpg" />
     <Content Include="Member\Events.aspx" />
     <Content Include="Member\Statistics.aspx" />

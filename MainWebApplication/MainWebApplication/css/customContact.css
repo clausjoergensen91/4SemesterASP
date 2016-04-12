@@ -1,0 +1,37 @@
+﻿.jumbotron {
+    font-family: 'Arvo', 'Courier New', serif;
+    text-align: center;
+    color: white;
+}
+
+#Contact-coaches {
+    background-color: white;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-align: center;
+    padding-top: 0px;
+}
+
+#Contact-board {
+    background-color: #EEE;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#Contact-board h2 {
+    margin-top: 50px;
+}
+
+#Contact-board h2, #Contact-coaches h2{
+    font-family: 'Arvo', 'Courier New', serif;
+    text-align: center;
+    color: #1C7FF2;
+}
+
+.homepage hr{
+    border-color: #0080FF;
+    width: 160px;
+    margin-top: 15px;
+}
