@@ -66,6 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\EditCalendar.aspx" />
+    <Content Include="Admin\Index.aspx" />
+    <Content Include="Admin\NewsAdmin.aspx" />
+    <Content Include="Admin\Statistics.aspx" />
+    <Content Include="css\customAbout.css" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="Member\Events.aspx" />
+    <Content Include="Member\Statistics.aspx" />
     <Content Include="packages.config" />
     <Content Include="mpDefault.Master" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -117,6 +125,35 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\BaseDB.cs" />
+    <Compile Include="Admin\EditCalendar.aspx.cs">
+      <DependentUpon>EditCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCalendar.aspx.designer.cs">
+      <DependentUpon>EditCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NewsAdmin.aspx.cs">
+      <DependentUpon>NewsAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NewsAdmin.aspx.designer.cs">
+      <DependentUpon>NewsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +189,20 @@
     <Compile Include="Logon.aspx.designer.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Member\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mpDefault.Master.cs">
       <DependentUpon>mpDefault.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,10 +212,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
