@@ -72,6 +72,7 @@
     <Content Include="Admin\Statistics.aspx" />
     <Content Include="css\customContact.css" />
     <Content Include="images\logo.jpg" />
+    <Content Include="js\jQuery_about.js" />
     <Content Include="Member\Events.aspx" />
     <Content Include="Member\Statistics.aspx" />
     <Content Include="packages.config" />
