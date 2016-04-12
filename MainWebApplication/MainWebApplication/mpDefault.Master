@@ -43,6 +43,8 @@
             <li runat="server" id="menuItem2"><a href="About.aspx">Kontak</a></li>
             <li runat="server" id="menuItem3"><a href="Contact.aspx">Om klubben</a></li>
             <li runat="server" id="menuItem4"><a href="Calendar.aspx">Kalender</a></li>
+            <li runat="server" id="menuItem5"><a href="Logon.aspx">Log on</a></li>
+            <li runat="server" id="menuItem6"><a href="CreateUser.aspx">CreateUser.aspx</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
