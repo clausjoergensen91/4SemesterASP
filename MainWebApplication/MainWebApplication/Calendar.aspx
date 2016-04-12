@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <hr>
+      <hr />
 
       <footer>
         <p>&copy; 2015 Company, Inc.</p>

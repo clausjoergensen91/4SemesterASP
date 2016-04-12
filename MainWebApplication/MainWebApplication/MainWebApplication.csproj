@@ -66,8 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AdminPage.aspx" />
     <Content Include="Admin\EditCalendar.aspx" />
-    <Content Include="Admin\Index.aspx" />
     <Content Include="Admin\NewsAdmin.aspx" />
     <Content Include="Admin\Statistics.aspx" />
     <Content Include="css\customAbout.css" />
@@ -84,6 +84,8 @@
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap.css.map" />
     <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="Admin\Web.config" />
+    <Content Include="Member\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -126,19 +128,19 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\BaseDB.cs" />
+    <Compile Include="Admin\AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditCalendar.aspx.cs">
       <DependentUpon>EditCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\EditCalendar.aspx.designer.cs">
       <DependentUpon>EditCalendar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\NewsAdmin.aspx.cs">
       <DependentUpon>NewsAdmin.aspx</DependentUpon>

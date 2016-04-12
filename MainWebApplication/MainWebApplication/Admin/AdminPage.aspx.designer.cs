@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MainWebApplication
+namespace MainWebApplication.Admin
 {
 
 
-    public partial class Index
+    public partial class AdminPage
     {
     }
 }
