@@ -3,3 +3,9 @@
         $(this).hide();
     });
 });
+
+$(document).ready(function () {
+    $("#clickme").click(function () {
+        $("p").show().
+    });
+});
