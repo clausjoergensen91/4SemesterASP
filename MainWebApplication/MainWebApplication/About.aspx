@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/customAbout.css" rel="stylesheet" />
     <link href="css/customAbout.css" rel="stylesheet" />
-    <script src="js/jQuery_about.js"></script>
+    <script src="Scripts/jQuery_about.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -11,7 +11,7 @@
         <h1>Hello, world!</h1>
           <p>hshdhdhdhdhdhd</p>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg clickme" href="#" role="button">Learn more &raquo;</a></p>
+        <a class="btn btn-primary btn-lg clickme" href="#" role="button">Learn more &raquo;</a>
       </div>
     </div>
 

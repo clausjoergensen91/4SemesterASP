@@ -5,7 +5,7 @@
 });
 
 $(document).ready(function () {
-    $("#clickme").click(function () {
-        $("p").show().
+    $(".clickme").click(function () {
+        $("p").show();
     });
 });
