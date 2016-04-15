@@ -1,0 +1,27 @@
+﻿h1 {
+    margin-top: 50px;
+    text-align: center;
+}
+
+label{
+    display:inline-block;
+    width:200px;
+    margin-right:0px;
+    text-align:left;
+}
+
+input {
+    text-align:left;
+}
+
+fieldset{
+    border:none;
+    width:500px;
+    margin:0px auto;
+    text-align: left;
+}
+
+#buttonSubmit {
+    text-align: center;
+    margin-bottom: 50px;
+}
