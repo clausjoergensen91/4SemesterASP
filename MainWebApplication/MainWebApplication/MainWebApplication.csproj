@@ -50,6 +50,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,6 +97,59 @@
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.Player.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.Team.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.TrainingSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSIProxy\MainWebApplication.BSIProxy.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\BSIProxy\Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BSIProxy\service.wsdl" />
+    <None Include="Service References\BSIProxy\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BSIProxy\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TestProxy\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TestProxy\BackEnd.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BSIProxy\configuration91.svcinfo" />
+    <None Include="Service References\BSIProxy\configuration.svcinfo" />
+    <None Include="Service References\BSIProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\TestProxy\MainWebApplication.TestProxy.Booking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TestProxy\MainWebApplication.TestProxy.Marina.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\TestProxy\service.wsdl" />
+    <None Include="Service References\TestProxy\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TestProxy\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,7 +174,15 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Logon.aspx" />
-    <Content Include="Web.config" />
+    <None Include="Service References\TestProxy\configuration91.svcinfo" />
+    <None Include="Service References\TestProxy\configuration.svcinfo" />
+    <None Include="Service References\TestProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="404.aspx.cs">
@@ -136,7 +199,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\BaseDB.cs" />
     <Compile Include="Admin\AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +227,8 @@
     <Compile Include="Admin\Statistics.aspx.designer.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BSIMembershipProvider.cs" />
+    <Compile Include="BSIRoleProvider.cs" />
     <Compile Include="Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,9 +286,26 @@
       <DependentUpon>mpDefault.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\BSIProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TestProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BSIProxy\" />
+    <WCFMetadataStorage Include="Service References\TestProxy\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

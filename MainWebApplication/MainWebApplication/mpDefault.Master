@@ -35,7 +35,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
+
 <body>
+    <form id="form1" runat="server">
     <!-- Start of header-->
     <!-- Fixed masthead -->
     <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
@@ -46,30 +48,35 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+              
           </button>
-          <a class="navbar-brand" href="Index.aspx"><img src="images/logo.jpg" width="30" height="30"/></a>
+          <a class="navbar-brand" href="../Index.aspx"><img src="../images/logo.jpg" width="30" height="30"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="Index.aspx">Hjem</a></li>
-            <li><a href="About.aspx">Om klubben</a></li>
-            <li><a href="Calendar.aspx">Se kalender</a></li>
-            <li><a href="Contact.aspx">Kontakt os</a></li>
+            <li><a href="../About.aspx">Om klubben</a></li>
+            <li><a href="../Calendar.aspx">Se kalender</a></li>
+            <li><a href="../Contact.aspx">Kontakt os</a></li>
+            <li><a href="../Admin/AdminPage.aspx">Admin</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="Logon.aspx">Log på</a></li>
-            <li><a href="CreateUser.aspx">Opret bruger</a></li>
+            <li><a href="../Logon.aspx">Log på</a></li>
+            <li><a href="../CreateUser.aspx">Opret bruger</a></li>
+            <asp:Button ID="LogoutBut" runat="server" Text="Logout" OnClick="LogoutMethod" />
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <!-- End of header-->
-    <form id="form1" runat="server">
+    
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </asp:ContentPlaceHolder>
     </div>
+    <asp:Button ID="Button1" runat="server" OnClick="testProxy" Text="Button" />
     </form>
 
           <footer>
