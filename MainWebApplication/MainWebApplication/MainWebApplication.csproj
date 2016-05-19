@@ -125,6 +125,34 @@
     <None Include="Service References\BSIProxy\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.Player.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.Team.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.TrainingSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BSISecureProxy\MainWebApplication.BSISecureProxy.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\BSISecureProxy\Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BSISecureProxy\service.wsdl" />
+    <None Include="Service References\BSISecureProxy\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BSISecureProxy\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\TestProxy\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -134,6 +162,12 @@
     <None Include="Service References\BSIProxy\configuration91.svcinfo" />
     <None Include="Service References\BSIProxy\configuration.svcinfo" />
     <None Include="Service References\BSIProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BSISecureProxy\configuration91.svcinfo" />
+    <None Include="Service References\BSISecureProxy\configuration.svcinfo" />
+    <None Include="Service References\BSISecureProxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -291,6 +325,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\BSISecureProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\TestProxy\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +344,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BSIProxy\" />
+    <WCFMetadataStorage Include="Service References\BSISecureProxy\" />
     <WCFMetadataStorage Include="Service References\TestProxy\" />
   </ItemGroup>
   <PropertyGroup>

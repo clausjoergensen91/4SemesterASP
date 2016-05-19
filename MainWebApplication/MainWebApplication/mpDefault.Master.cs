@@ -7,7 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 //using MainWebApplication.TestProxy;
-using MainWebApplication.BSIProxy;
+using MainWebApplication;
 using System.ServiceModel.Security;
 
 namespace MainWebApplication
@@ -28,10 +28,10 @@ namespace MainWebApplication
         }
         protected void testProxy(object sender, EventArgs e)
         {
-            BSIServiceClient proxy = new BSIServiceClient("BasicHttpBinding_IBSIService");
-            proxy.ClientCredentials.UserName.UserName = "testFindUser";
-            proxy.ClientCredentials.UserName.Password = "testFindUser";
-                proxy.FindUser("email");
+            BSISecureProxy.SecureBSIServiceClient proxy = new BSISecureProxy.SecureBSIServiceClient("SecureWSHttpBinding");
+            proxy.ClientCredentials.UserName.UserName = "AdminUser";
+            proxy.ClientCredentials.UserName.Password = "AdminUser";
+                proxy.FindUserSecure("Mor");
         }
     }
 }
