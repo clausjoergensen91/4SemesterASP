@@ -51,7 +51,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="Index.aspx">Hjem</a></li>
+            <li><a href="Index.aspx">Hjem</a></li>
             <li><a href="About.aspx">Om klubben</a></li>
             <li><a href="Calendar.aspx">Se kalender</a></li>
             <li><a href="Contact.aspx">Kontakt os</a></li>
@@ -73,7 +73,7 @@
     </form>
 
           <footer>
-        <p>&copy; 2015 Company, Inc.</p>
+        <p>&copy; 2016, Bælum/Solbjerg Idrætsforening - All rights reserved.</p>
       </footer>
 
     <!-- Bootstrap core JavaScript

@@ -74,6 +74,7 @@
     <Content Include="Admin\Statistics.aspx" />
     <Content Include="css\customAbout.css" />
     <Content Include="css\customContact.css" />
+    <Content Include="css\logonCustom.css" />
     <Content Include="images\logo.jpg" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\jQuery_about.js" />
