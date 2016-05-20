@@ -2,9 +2,12 @@
     padding-top: 30px;
 }
 
-.jumbotron h1{
+.jumbotron h1, h1{
     margin-bottom: 20px;
     margin-top: 0px;
+    color: #1C7FF2;
+    font-family: 'Arvo', 'Courier New', serif;
+    text-align: center;
     color: #1C7FF2;
 }
 
