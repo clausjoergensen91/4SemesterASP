@@ -13,7 +13,7 @@ namespace MainWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Thread.CurrentPrincipal.Identity.Name + User.Identity.Name;
+            Label1.Text = Thread.CurrentPrincipal.Identity + User.Identity.Name + HttpContext.Current.User.Identity.Name; ;
         }
 
         protected void LoginBut(object sender, EventArgs e)
@@ -26,6 +26,7 @@ namespace MainWebApplication
             {
                 FormsAuthentication.SetAuthCookie(userName, false);
                 FormsAuthentication.RedirectFromLoginPage(userName, false);
+                Session["password"] = passWord;
             }
         }
     }

@@ -29,8 +29,8 @@ namespace MainWebApplication
         protected void testProxy(object sender, EventArgs e)
         {
             BSISecureProxy.SecureBSIServiceClient proxy = new BSISecureProxy.SecureBSIServiceClient("SecureWSHttpBinding");
-            proxy.ClientCredentials.UserName.UserName = "AdminUser";
-            proxy.ClientCredentials.UserName.Password = "AdminUser";
+            proxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
+            proxy.ClientCredentials.UserName.Password = (string)Session["password"];
                 proxy.FindUserSecure("Mor");
         }
     }
