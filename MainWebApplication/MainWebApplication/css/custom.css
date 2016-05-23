@@ -33,3 +33,9 @@ footer{
 	background-color: #0acdd2;
 	text-align: center;
 }
+
+.loginBut {
+    border: none;
+    fill-opacity:0;
+
+}

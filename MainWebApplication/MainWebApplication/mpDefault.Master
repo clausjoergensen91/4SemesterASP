@@ -62,9 +62,9 @@
             <li><a href="/Admin/AdminPage.aspx">Admin</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/Logon.aspx">Log på</a></li>
+            <li><asp:Button ID="LoginBut" runat="server" OnClick="LogInMethod" class="loginBut"/> </li>
             <li><a href="/CreateUser.aspx">Opret bruger</a></li>
-            <asp:Button ID="LogoutBut" runat="server" Text="Logout" OnClick="LogoutMethod" />
+            <li><asp:Label ID="StatusLabel" runat="server" /></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

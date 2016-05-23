@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d16c03e1-96bd-4c75-9eb0-fec569b4c599" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="038c50f7-8c2c-471f-ba4d-0ed0fac864d3" SourceId="1" SourceUrl="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c14178c5-2eae-4b36-9c21-7bb1fc0901c7" SourceId="1" SourceUrl="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="68e6281c-24b5-4418-8c40-0a024551894a" SourceId="1" SourceUrl="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" />
+    <MetadataFile FileName="BackEnd.xsd" MetadataType="Schema" ID="8bc26be0-cf17-4f73-a511-9afa20a98b32" SourceId="1" SourceUrl="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="9310d06f-2fbf-49bd-9f7a-82465501672e" SourceId="1" SourceUrl="net.tcp://localhost:8833/Design_Time_Addresses/ServiceLayer/BookingService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

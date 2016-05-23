@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BackEnd" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BackEnd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfPartBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartBooking" nillable="true" type="tns:PartBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartBooking" nillable="true" type="tns:ArrayOfPartBooking" />
+  <xs:complexType name="PartBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Berth" nillable="true" type="tns:Berth" />
+      <xs:element minOccurs="0" name="BoatName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HomeBerth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartBooking" nillable="true" type="tns:PartBooking" />
+  <xs:complexType name="Berth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Length" type="xs:double" />
+      <xs:element minOccurs="0" name="MarinaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutOfOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Berth" nillable="true" type="tns:Berth" />
+  <xs:complexType name="Booking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PartBookings" nillable="true" type="tns:ArrayOfPartBooking" />
+      <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+      <xs:element minOccurs="0" name="TotalPrice" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Booking" nillable="true" type="tns:Booking" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="Marina">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Berths" nillable="true" type="tns:ArrayOfBerth" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isOpen" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Marina" nillable="true" type="tns:Marina" />
+  <xs:complexType name="ArrayOfBerth">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Berth" nillable="true" type="tns:Berth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBerth" nillable="true" type="tns:ArrayOfBerth" />
+</xs:schema>
