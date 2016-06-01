@@ -17,7 +17,7 @@ namespace MainWebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Thread.CurrentPrincipal.Identity + User.Identity.Name + HttpContext.Current.User.Identity.Name;
+            //Label1.Text = Thread.CurrentPrincipal.Identity + User.Identity.Name + HttpContext.Current.User.Identity.Name;
             filename = Server.MapPath("~/Logging/LogFile.txt");
         }
 

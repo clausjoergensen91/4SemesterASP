@@ -59,6 +59,7 @@
             <li><a href="/About.aspx">Om klubben</a></li>
             <li><a href="/Calendar.aspx">Se kalender</a></li>
             <li><a href="/Contact.aspx">Kontakt os</a></li>
+            <li><a href="Test.aspx">Test</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><asp:Button ID="LoginBut" runat="server" OnClick="LogInMethod" class="loginBut"/> </li>
@@ -72,10 +73,9 @@
     
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </asp:ContentPlaceHolder>
     </div>
-    <asp:Button ID="Button1" runat="server" OnClick="testProxy" Text="Button" />
+<%--    <asp:Button ID="Button1" runat="server" OnClick="testProxy" Text="Button" />--%>
     </form>
 
           <footer>

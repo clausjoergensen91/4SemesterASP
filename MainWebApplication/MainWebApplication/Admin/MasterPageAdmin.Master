@@ -86,6 +86,7 @@
             <li><a href="../Admin/NewsAdmin.aspx">Opret/redigér nyhed</a></li>
             <li><a href="../Admin/EditCalendar.aspx">Se/redigér kalender</a></li>
             <li><a href="../Admin/Statistics.aspx">Se statistikker</a></li>
+            <li><a href="../Admin/UserPanel.aspx">Brugerpanel</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

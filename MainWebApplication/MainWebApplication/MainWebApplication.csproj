@@ -74,11 +74,13 @@
     <Content Include="Admin\EditCalendar.aspx" />
     <Content Include="Admin\NewsAdmin.aspx" />
     <Content Include="Admin\Statistics.aspx" />
+    <Content Include="Admin\UserPanel.aspx" />
     <Content Include="css\customAbout.css" />
     <Content Include="css\customAdmin.css" />
     <Content Include="css\customContact.css" />
     <Content Include="css\customMember.css" />
     <Content Include="css\logonCustom.css" />
+    <Content Include="css\testCustom.css" />
     <Content Include="images\logo.jpg" />
     <Content Include="Admin\MasterPageAdmin.Master" />
     <Content Include="Member\MasterPageMember.Master" />
@@ -273,6 +275,13 @@
     </Compile>
     <Compile Include="Admin\Statistics.aspx.designer.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserPanel.aspx.cs">
+      <DependentUpon>UserPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserPanel.aspx.designer.cs">
+      <DependentUpon>UserPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="BSIMembershipProvider.cs" />
     <Compile Include="BSIRoleProvider.cs" />
