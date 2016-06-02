@@ -35,10 +35,11 @@ namespace MainWebApplication
             {
                 proxy.FindUserSecure("Mor");
             }
-            catch(Exception ex) {
- 
+            catch (Exception ex)
+            {
+
             }
-                
+
         }
 
         protected void LogInMethod(object sender, EventArgs e)

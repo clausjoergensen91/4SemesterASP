@@ -10,6 +10,7 @@ namespace MainWebApplication.Admin
     public partial class UserPanel : System.Web.UI.Page
     {
         BSIProxy.BSIServiceClient client = new BSIProxy.BSIServiceClient("wsHttpBinding");
+        //BSISecureProxy.BSIServiceClient clientSecure = new BSISecureProxy.BSIServiceClient("SecureWSHttpBinding");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace MainWebApplication.Admin
             int admin = Convert.ToInt32(textAdmin.Text);
 
             bool result = client.CreateUser(username, password, firstName, lastName, email, admin, type);
+            //bool results = clientSecure.CreateUser(username, password, firstName, lastName, email, admin, type);
         }
 
         protected void btnDelete_click(object sender, EventArgs e)
@@ -34,6 +36,7 @@ namespace MainWebApplication.Admin
             string email = textEmailDelete.Text;
 
             bool result = client.DeleteUser(email);
+            //bool results = clientSecure.DeleteUser(email);
         }
 
         protected void btnUpdate_click(object sender, EventArgs e)
@@ -49,6 +52,7 @@ namespace MainWebApplication.Admin
             string type = TextTypeUpdate.Text;
 
             bool result = client.UpdateUser(oldFirstname, oldLastName, username, password, firstname, lastname, email, admin, type);
+            //bool results = clientSecure.UpdateUser(oldFirstname, oldLastName, username, password, firstname, lastname, email, admin, type);
         }
     }
 }
