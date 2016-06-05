@@ -37,5 +37,5 @@ footer{
 .loginBut {
     border: none;
     fill-opacity:0;
-
+    padding-top: 10px;
 }

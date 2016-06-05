@@ -63,7 +63,6 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><asp:Button ID="LoginBut" runat="server" OnClick="LogInMethod" class="loginBut"/> </li>
-            <li><a href="/CreateUser.aspx">Opret bruger</a></li>
             <li><asp:Label ID="StatusLabel" runat="server" /></li>
           </ul>
         </div><!--/.nav-collapse -->
