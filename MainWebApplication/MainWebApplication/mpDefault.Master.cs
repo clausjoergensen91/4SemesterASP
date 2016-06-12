@@ -33,13 +33,13 @@ namespace MainWebApplication
             MainWebApplication.webhostProxy.BSIServiceClient unsecProxy = new MainWebApplication.webhostProxy.BSIServiceClient("WSHttpBinding_IBSIService");
             //proxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
             //proxy.ClientCredentials.UserName.Password = (string)Session["password"];
-
+ 
             //    unsecProxy.FindPlayer("Mor");
             MainWebApplication.webhostProxy.SecureBSIServiceClient webProxy = new MainWebApplication.webhostProxy.SecureBSIServiceClient("WSHttpBinding_ISecureBSIService");
                 webProxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
                 webProxy.ClientCredentials.UserName.Password = (string)Session["password"];
                 webProxy.FindUserSecure("peter@bsi.dk");
-
+                
         }
 
         protected void LogInMethod(object sender, EventArgs e)

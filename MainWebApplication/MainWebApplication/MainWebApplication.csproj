@@ -74,12 +74,19 @@
     <Content Include="Admin\EditCalendar.aspx" />
     <Content Include="Admin\NewsAdmin.aspx" />
     <Content Include="Admin\Statistics.aspx" />
+    <Content Include="Admin\UserPanel.aspx" />
     <Content Include="css\customAbout.css" />
+    <Content Include="css\customAdmin.css" />
     <Content Include="css\customContact.css" />
+    <Content Include="css\customMember.css" />
     <Content Include="css\logonCustom.css" />
+    <Content Include="css\testCustom.css" />
     <Content Include="images\logo.jpg" />
+    <Content Include="Admin\MasterPageAdmin.Master" />
+    <Content Include="Member\MasterPageMember.Master" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\Calendar.js" />
+    <Content Include="Logging\LogFile.txt" />
     <Content Include="Scripts\jQuery_about.js" />
     <Content Include="Member\Events.aspx" />
     <Content Include="Member\Statistics.aspx" />
@@ -284,6 +291,13 @@
     <Compile Include="Admin\EditCalendar.aspx.designer.cs">
       <DependentUpon>EditCalendar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MasterPageAdmin.Master.cs">
+      <DependentUpon>MasterPageAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MasterPageAdmin.Master.designer.cs">
+      <DependentUpon>MasterPageAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Admin\NewsAdmin.aspx.cs">
       <DependentUpon>NewsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +311,13 @@
     </Compile>
     <Compile Include="Admin\Statistics.aspx.designer.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserPanel.aspx.cs">
+      <DependentUpon>UserPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserPanel.aspx.designer.cs">
+      <DependentUpon>UserPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="BSIMembershipProvider.cs" />
     <Compile Include="BSIRoleProvider.cs" />
@@ -341,6 +362,13 @@
     </Compile>
     <Compile Include="Member\Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\MasterPageMember.Master.cs">
+      <DependentUpon>MasterPageMember.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\MasterPageMember.Master.designer.cs">
+      <DependentUpon>MasterPageMember.Master</DependentUpon>
     </Compile>
     <Compile Include="Member\Statistics.aspx.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>

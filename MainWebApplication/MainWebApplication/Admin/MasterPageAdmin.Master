@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mpDefault.master.cs" Inherits="MainWebApplication.mpDefault" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPageAdmin.master.cs" Inherits="MainWebApplication.Admin.MasterPageAdmin" %>
 
 <!DOCTYPE html>
 
@@ -17,15 +17,14 @@
     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
 
     <!--core CSS-->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/custom.css" rel="stylesheet" />
-    
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <link href="../css/customAdmin.css" rel="stylesheet" />
     <!-- jQuery CDN from Google-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="Scripts/jquery-2.2.3.js"></script>
-    <script src="Scripts/jquery-2.2.3.min.js"></script>
-    <script src="Scripts/jquery-2.2.3.intellisense.js"></script>
-    <script src="Scripts/Calendar.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.intellisense.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -37,7 +36,7 @@
     </asp:ContentPlaceHolder>
 </head>
 
-<body onload="displayCalendar(0)">
+<body>
     <form id="form1" runat="server">
     <!-- Start of header-->
     <!-- Fixed masthead -->
@@ -52,15 +51,14 @@
             <span class="icon-bar"></span>
               
           </button>
-          <a class="navbar-brand" href="/Index.aspx"><img src="/images/logo.jpg" width="30" height="30"/></a>
+          <a class="navbar-brand" href="~/Index.aspx"><img src="../images/logo.jpg" width="30" height="30"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="Index.aspx">Hjem</a></li>
-            <li><a href="/About.aspx">Om klubben</a></li>
-            <li><a href="/Calendar.aspx">Se kalender</a></li>
-            <li><a href="/Contact.aspx">Kontakt os</a></li>
-            <li><a href="Test.aspx">Test</a></li>
+            <li class="active"><a href="~/Index.aspx">Hjem</a></li>
+            <li><a href="~/About.aspx">Om klubben</a></li>
+            <li><a href="~/Calendar.aspx">Se kalender</a></li>
+            <li><a href="~/Contact.aspx">Kontakt os</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><asp:Button ID="LoginBut" runat="server" OnClick="LogInMethod" class="loginBut"/> </li>
@@ -71,12 +69,34 @@
       </div>
     </nav>
     <!-- End of header-->
+    <!-- Start of admin header-->
+    <nav class="navbar navbar-masthead navbar-default">
+      <div class="container admincontainer">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>         
+          </button>
+        </div>
+        <div id="navbar2" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../Admin/NewsAdmin.aspx">Opret/redigér nyhed</a></li>
+            <li><a href="../Admin/EditCalendar.aspx">Se/redigér kalender</a></li>
+            <li><a href="../Admin/Statistics.aspx">Se statistikker</a></li>
+            <li><a href="../Admin/UserPanel.aspx">Brugerpanel</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- End of admin header-->
     
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-<%--    <asp:Button ID="Button1" runat="server" OnClick="testProxy" Text="Button" />--%>
     </form>
 
           <footer>
@@ -87,6 +107,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="Scripts/bootstrap.min.js"></script>
-
 </body>
 </html>
+

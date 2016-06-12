@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MainWebApplication {
+namespace MainWebApplication.Member {
     
     
-    public partial class mpDefault {
+    public partial class MasterPageMember {
         
         /// <summary>
         /// head control.
