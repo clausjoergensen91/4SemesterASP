@@ -11,9 +11,9 @@ namespace MainWebApplication
     {
         public override string[] GetRolesForUser(string username)
         {
-            BSIServiceClient proxy = new BSIServiceClient("wsHttpBinding");
+            BSIServiceClient proxy = new BSIServiceClient("testWsBinding");
             string role = proxy.GetRolesForUser(username).ToString();
-            return new string[] { role };
+            return new string[] { role, "Admin" };
         }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)

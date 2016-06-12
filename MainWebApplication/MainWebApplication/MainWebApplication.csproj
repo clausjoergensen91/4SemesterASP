@@ -79,6 +79,7 @@
     <Content Include="css\logonCustom.css" />
     <Content Include="images\logo.jpg" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Calendar.js" />
     <Content Include="Scripts\jQuery_about.js" />
     <Content Include="Member\Events.aspx" />
     <Content Include="Member\Statistics.aspx" />
@@ -185,6 +186,34 @@
     <None Include="Service References\TestProxy\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\webhostProxy\BSIService.wsdl" />
+    <None Include="Service References\webhostProxy\BSIService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\webhostProxy\BSIService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\webhostProxy\BSIService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.Player.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.Team.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.TrainingSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webhostProxy\MainWebApplication.webhostProxy.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,6 +241,13 @@
     <None Include="Service References\TestProxy\configuration91.svcinfo" />
     <None Include="Service References\TestProxy\configuration.svcinfo" />
     <None Include="Service References\TestProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\webhostProxy\BSIService.disco" />
+    <None Include="Service References\webhostProxy\configuration91.svcinfo" />
+    <None Include="Service References\webhostProxy\configuration.svcinfo" />
+    <None Include="Service References\webhostProxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -336,6 +372,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\webhostProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -347,6 +388,7 @@
     <WCFMetadataStorage Include="Service References\BSIProxy\" />
     <WCFMetadataStorage Include="Service References\BSISecureProxy\" />
     <WCFMetadataStorage Include="Service References\TestProxy\" />
+    <WCFMetadataStorage Include="Service References\webhostProxy\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

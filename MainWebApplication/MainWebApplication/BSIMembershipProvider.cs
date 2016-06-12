@@ -13,7 +13,7 @@ namespace MainWebApplication
     {
         public override bool ValidateUser(string username, string password)
         {
-            BSIServiceClient proxy = new BSIServiceClient("wsHttpBinding");
+            MainWebApplication.webhostProxy.BSIServiceClient proxy = new MainWebApplication.webhostProxy.BSIServiceClient("WSHttpBinding_IBSIService");
             return proxy.ValidateUser(username, password);
         }
 

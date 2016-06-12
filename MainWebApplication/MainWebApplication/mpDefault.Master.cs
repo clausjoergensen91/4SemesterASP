@@ -16,6 +16,7 @@ namespace MainWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var sda = Thread.CurrentPrincipal.Identity.Name;
             if (Thread.CurrentPrincipal.Identity.Name.Length == 0)
             {
                 LoginBut.Text = "Login";
@@ -28,17 +29,17 @@ namespace MainWebApplication
 
         protected void testProxy(object sender, EventArgs e)
         {
-            BSISecureProxy.SecureBSIServiceClient proxy = new BSISecureProxy.SecureBSIServiceClient("SecureWSHttpBinding");
-            proxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
-            proxy.ClientCredentials.UserName.Password = (string)Session["password"];
-            try
-            {
-                proxy.FindUserSecure("Mor");
-            }
-            catch(Exception ex) {
- 
-            }
-                
+            //BSISecureProxy.SecureBSIServiceClient proxy = new BSISecureProxy.SecureBSIServiceClient("SecureWSHttpBinding");
+            MainWebApplication.webhostProxy.BSIServiceClient unsecProxy = new MainWebApplication.webhostProxy.BSIServiceClient("WSHttpBinding_IBSIService");
+            //proxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
+            //proxy.ClientCredentials.UserName.Password = (string)Session["password"];
+
+            //    unsecProxy.FindPlayer("Mor");
+            MainWebApplication.webhostProxy.SecureBSIServiceClient webProxy = new MainWebApplication.webhostProxy.SecureBSIServiceClient("WSHttpBinding_ISecureBSIService");
+                webProxy.ClientCredentials.UserName.UserName = Thread.CurrentPrincipal.Identity.Name;
+                webProxy.ClientCredentials.UserName.Password = (string)Session["password"];
+                webProxy.FindUserSecure("peter@bsi.dk");
+
         }
 
         protected void LogInMethod(object sender, EventArgs e)
