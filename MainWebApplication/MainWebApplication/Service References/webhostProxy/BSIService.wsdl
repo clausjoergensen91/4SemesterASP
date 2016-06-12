@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BSIService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IBSIService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpBinding_ISecureBSIService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ISecureBSIService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:BootstrapPolicy>
+                  <wsp:Policy>
+                    <sp:SignedParts>
+                      <sp:Body />
+                      <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                    </sp:SignedParts>
+                    <sp:EncryptedParts>
+                      <sp:Body />
+                    </sp:EncryptedParts>
+                    <sp:TransportBinding>
+                      <wsp:Policy>
+                        <sp:TransportToken>
+                          <wsp:Policy>
+                            <sp:HttpsToken RequireClientCertificate="false" />
+                          </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                          <wsp:Policy>
+                            <sp:Basic256 />
+                          </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                          <wsp:Policy>
+                            <sp:Strict />
+                          </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp />
+                      </wsp:Policy>
+                    </sp:TransportBinding>
+                    <sp:SignedSupportingTokens>
+                      <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                          <wsp:Policy>
+                            <sp:WssUsernameToken10 />
+                          </wsp:Policy>
+                        </sp:UsernameToken>
+                      </wsp:Policy>
+                    </sp:SignedSupportingTokens>
+                    <sp:Wss11>
+                      <wsp:Policy />
+                    </sp:Wss11>
+                    <sp:Trust10>
+                      <wsp:Policy>
+                        <sp:MustSupportIssuedTokens />
+                        <sp:RequireClientEntropy />
+                        <sp:RequireServerEntropy />
+                      </wsp:Policy>
+                    </sp:Trust10>
+                  </wsp:Policy>
+                </sp:BootstrapPolicy>
+              </wsp:Policy>
+            </sp:SecureConversationToken>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://localhost:8182/WebHost/BSIService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://localhost:8182/WebHost/BSIService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:8182/WebHost/BSIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBSIService_GetRolesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_GetRolesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_DeletePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_DeletePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreatePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreatePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNews" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_CreateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindMatches" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTrainingSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTrainingSessions" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTrainingSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTrainingSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindNews" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTeamWithId_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamWithId" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTeamWithId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamWithIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeam" />
+  </wsdl:message>
+  <wsdl:message name="IBSIService_FindTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_GetRolesForUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_GetRolesForUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_ValidateUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_ValidateUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindPlayerSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlayerSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindPlayerSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPlayerSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_DeletePlayerSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayerSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_DeletePlayerSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayerSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreatePlayerSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayerSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreatePlayerSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayerSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateNewsSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewsSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateNewsSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewsSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateMatchSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatchSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_CreateMatchSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatchSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_DeleteUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_DeleteUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindMatchesSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindMatchesSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindMatchesSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindMatchesSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTrainingSessionsSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTrainingSessionsSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTrainingSessionsSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTrainingSessionsSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindNewsSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindNewsSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindNewsSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNewsSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_UpdateUserSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_UpdateUserSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTeamWithIdSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamWithIdSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTeamWithIdSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamWithIdSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTeamSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamSecure" />
+  </wsdl:message>
+  <wsdl:message name="ISecureBSIService_FindTeamSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeamSecureResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBSIService">
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/GetRolesForUser" message="tns:IBSIService_GetRolesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/GetRolesForUserResponse" message="tns:IBSIService_GetRolesForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/ValidateUser" message="tns:IBSIService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/ValidateUserResponse" message="tns:IBSIService_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindPlayer" message="tns:IBSIService_FindPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindPlayerResponse" message="tns:IBSIService_FindPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/DeletePlayer" message="tns:IBSIService_DeletePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/DeletePlayerResponse" message="tns:IBSIService_DeletePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/CreatePlayer" message="tns:IBSIService_CreatePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/CreatePlayerResponse" message="tns:IBSIService_CreatePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/CreateUser" message="tns:IBSIService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/CreateUserResponse" message="tns:IBSIService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/CreateNews" message="tns:IBSIService_CreateNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/CreateNewsResponse" message="tns:IBSIService_CreateNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/CreateMatch" message="tns:IBSIService_CreateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/CreateMatchResponse" message="tns:IBSIService_CreateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/DeleteUser" message="tns:IBSIService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/DeleteUserResponse" message="tns:IBSIService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindUser" message="tns:IBSIService_FindUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindUserResponse" message="tns:IBSIService_FindUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindMatches" message="tns:IBSIService_FindMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindMatchesResponse" message="tns:IBSIService_FindMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTrainingSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindTrainingSessions" message="tns:IBSIService_FindTrainingSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindTrainingSessionsResponse" message="tns:IBSIService_FindTrainingSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindNews" message="tns:IBSIService_FindNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindNewsResponse" message="tns:IBSIService_FindNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/UpdateUser" message="tns:IBSIService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/UpdateUserResponse" message="tns:IBSIService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamWithId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindTeamWithId" message="tns:IBSIService_FindTeamWithId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindTeamWithIdResponse" message="tns:IBSIService_FindTeamWithId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBSIService/FindTeam" message="tns:IBSIService_FindTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBSIService/FindTeamResponse" message="tns:IBSIService_FindTeam_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISecureBSIService">
+    <wsdl:operation name="GetRolesForUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/GetRolesForUserSecure" message="tns:ISecureBSIService_GetRolesForUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/GetRolesForUserSecureResponse" message="tns:ISecureBSIService_GetRolesForUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/ValidateUserSecure" message="tns:ISecureBSIService_ValidateUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/ValidateUserSecureResponse" message="tns:ISecureBSIService_ValidateUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPlayerSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindPlayerSecure" message="tns:ISecureBSIService_FindPlayerSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindPlayerSecureResponse" message="tns:ISecureBSIService_FindPlayerSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayerSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/DeletePlayerSecure" message="tns:ISecureBSIService_DeletePlayerSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/DeletePlayerSecureResponse" message="tns:ISecureBSIService_DeletePlayerSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlayerSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/CreatePlayerSecure" message="tns:ISecureBSIService_CreatePlayerSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/CreatePlayerSecureResponse" message="tns:ISecureBSIService_CreatePlayerSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/CreateUserSecure" message="tns:ISecureBSIService_CreateUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/CreateUserSecureResponse" message="tns:ISecureBSIService_CreateUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewsSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/CreateNewsSecure" message="tns:ISecureBSIService_CreateNewsSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/CreateNewsSecureResponse" message="tns:ISecureBSIService_CreateNewsSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatchSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/CreateMatchSecure" message="tns:ISecureBSIService_CreateMatchSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/CreateMatchSecureResponse" message="tns:ISecureBSIService_CreateMatchSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/DeleteUserSecure" message="tns:ISecureBSIService_DeleteUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/DeleteUserSecureResponse" message="tns:ISecureBSIService_DeleteUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindUserSecure" message="tns:ISecureBSIService_FindUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindUserSecureResponse" message="tns:ISecureBSIService_FindUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMatchesSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindMatchesSecure" message="tns:ISecureBSIService_FindMatchesSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindMatchesSecureResponse" message="tns:ISecureBSIService_FindMatchesSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTrainingSessionsSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindTrainingSessionsSecure" message="tns:ISecureBSIService_FindTrainingSessionsSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindTrainingSessionsSecureResponse" message="tns:ISecureBSIService_FindTrainingSessionsSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNewsSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindNewsSecure" message="tns:ISecureBSIService_FindNewsSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindNewsSecureResponse" message="tns:ISecureBSIService_FindNewsSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/UpdateUserSecure" message="tns:ISecureBSIService_UpdateUserSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/UpdateUserSecureResponse" message="tns:ISecureBSIService_UpdateUserSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamWithIdSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindTeamWithIdSecure" message="tns:ISecureBSIService_FindTeamWithIdSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindTeamWithIdSecureResponse" message="tns:ISecureBSIService_FindTeamWithIdSecure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecureBSIService/FindTeamSecure" message="tns:ISecureBSIService_FindTeamSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecureBSIService/FindTeamSecureResponse" message="tns:ISecureBSIService_FindTeamSecure_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBSIService" type="tns:IBSIService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IBSIService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRolesForUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/GetRolesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPlayer">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayer">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/DeletePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlayer">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/CreatePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNews">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/CreateNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatch">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/CreateMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMatches">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTrainingSessions">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindTrainingSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNews">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamWithId">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindTeamWithId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeam">
+      <soap:operation soapAction="http://tempuri.org/IBSIService/FindTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISecureBSIService" type="tns:ISecureBSIService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_ISecureBSIService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRolesForUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/GetRolesForUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/ValidateUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPlayerSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindPlayerSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayerSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/DeletePlayerSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlayerSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/CreatePlayerSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/CreateUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewsSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/CreateNewsSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatchSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/CreateMatchSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/DeleteUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMatchesSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindMatchesSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTrainingSessionsSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindTrainingSessionsSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNewsSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindNewsSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/UpdateUserSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamWithIdSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindTeamWithIdSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamSecure">
+      <soap:operation soapAction="http://tempuri.org/ISecureBSIService/FindTeamSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_ISecureBSIService" type="tns:ISecureBSIService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ISecureBSIService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRolesForUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/GetRolesForUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/ValidateUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPlayerSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindPlayerSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayerSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/DeletePlayerSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlayerSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/CreatePlayerSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/CreateUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewsSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/CreateNewsSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatchSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/CreateMatchSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/DeleteUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMatchesSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindMatchesSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTrainingSessionsSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindTrainingSessionsSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNewsSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindNewsSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/UpdateUserSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamWithIdSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindTeamWithIdSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeamSecure">
+      <soap12:operation soapAction="http://tempuri.org/ISecureBSIService/FindTeamSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BSIService">
+    <wsdl:port name="BasicHttpBinding_IBSIService" binding="tns:BasicHttpBinding_IBSIService">
+      <soap:address location="https://localhost:8182/WebHost/BSIService.svc/norm" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISecureBSIService" binding="tns:BasicHttpBinding_ISecureBSIService">
+      <soap:address location="https://localhost:8182/WebHost/BSIService.svc/sec" />
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_ISecureBSIService" binding="tns:WSHttpBinding_ISecureBSIService">
+      <soap12:address location="https://localhost:8182/WebHost/BSIService.svc/ssl" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://localhost:8182/WebHost/BSIService.svc/ssl</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
